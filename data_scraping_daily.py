@@ -84,13 +84,13 @@ def scrape_naukri_jobs(start_page=1, max_jobs=1000):
                         return "Not specified"
 
                 title = safe_get(By.CSS_SELECTOR, 'h1')
-                company = safe_get(By.CSS_SELECTOR, 'a.pad-rt-8')
-                experience = safe_get(By.XPATH, "//span[text()='Experience']/following-sibling::span")
-                salary = safe_get(By.XPATH, "//span[text()='Salary']/following-sibling::span")
-                location = safe_get(By.XPATH, "//span[text()='Location']/following-sibling::span")
-                posted = safe_get(By.CLASS_NAME, 'timingWrapper')
-                openings = safe_get(By.XPATH, "//span[contains(text(),'Openings')]/following-sibling::span")
-                skills = safe_get(By.CLASS_NAME, 'key-skill')
+                company = safe_get(By.CSS_SELECTOR, 'div.styles_jd-header-comp-name__MvqAI a')
+                experience = safe_get(By.CSS_SELECTOR, 'div.styles_jhc__exp__k_giM span')
+                salary = safe_get(By.CSS_SELECTOR, 'div.styles_jhc__salary__jdfEC span')
+                location = safe_get(By.CSS_SELECTOR, 'span.styles_jhc__location__W_pVs')
+                posted = safe_get(By.XPATH, "//span[@class='styles_jhc__stat__PgY67' and contains(., 'Posted')]//span")
+                openings = safe_get(By.XPATH, "//span[@class='styles_jhc__stat__PgY67' and contains(., 'Openings')]//span")
+                skills = safe_get(By.CLASS_NAME, 'key-skill')  # Verify on actual page
                 job_desc = safe_get(By.CLASS_NAME, 'dang-inner-html')
 
                 # Write to CSV
