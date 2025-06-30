@@ -90,7 +90,7 @@ def scrape_naukri_jobs(start_page=1, max_jobs=1000):
                 location = safe_get(By.CSS_SELECTOR, 'span.styles_jhc__location__W_pVs')
                 posted = safe_get(By.XPATH, "//span[@class='styles_jhc__stat__PgY67' and contains(., 'Posted')]//span")
                 openings = safe_get(By.XPATH, "//span[@class='styles_jhc__stat__PgY67' and contains(., 'Openings')]//span")
-                skills = safe_get(By.CSS_SELECTOR, 'div.styles_key-skill__GIPn_ a span', multiple=True)  # Updated for skill
+                skills = safe_get(By.CLASS_NAME, 'key-skill')  # Verify on actual page
                 job_desc = safe_get(By.CLASS_NAME, 'dang-inner-html')
 
                 # Write to CSV
