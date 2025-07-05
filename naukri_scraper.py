@@ -10,7 +10,9 @@ import os
 import time
 from datetime import datetime
 
-def scrape_naukri_jobs(start_page=1, max_jobs=1000):
+page_number = 372  # Starting page number
+
+def scrape_naukri_jobs(start_page=page_number, max_jobs=500):
     options = Options()
     options.binary_location = "/usr/bin/google-chrome"  # Adjust if needed
     options.add_argument('--start-maximized')
@@ -130,4 +132,4 @@ def scrape_naukri_jobs(start_page=1, max_jobs=1000):
     print(f"📄 Data saved to: {output_file}")
 
 # Run the scraper
-scrape_naukri_jobs(start_page=1, max_jobs=1000)
+scrape_naukri_jobs(start_page=page_number, max_jobs=500)
